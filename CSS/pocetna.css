@@ -1,0 +1,708 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+/*Navigacijska traka*/
+nav {
+  height: 80px;
+  background: rgb(253, 204, 4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem calc((100vw - 1300px) / 2); /*100vw - 100% širine ekrana, 1300px - širina stranice*/
+}
+
+/*Logo*/
+.logo {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0 2rem; /*0 - gornja i donja margina, 2rem - lijeva i desna margina*/
+}
+
+/*Hamburger ikona*/
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/*Linkovi u navigacijskoj traci*/
+.nav-items {
+  display: flex;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 0 1.5rem;
+}
+
+.nav-items a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/*Hero sekcija*/
+.hero {
+  background: rgb(253, 204, 4);
+}
+
+/*Grid za layout*/
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /*1fr - 1 dio ekrana*/
+  height: 95%;
+  padding: 3rem calc((100vw - 1300px) / 2);
+}
+
+/*Za "heroe" pomicanje u lijevo*/
+.column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgb(0, 0, 0);
+  padding: 0rem 2rem;
+}
+
+/*Za "heroe" pomicanje u desno*/
+.column-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+
+.hero-image {
+  width: 70%;
+  height: 70%;
+  object-fit: scale-down;
+}
+
+/*Naslov lijevo*/
+.column-left h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+/*Paragraf lijevo*/
+.column-left p {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5; 
+  margin-top: 1rem; /* Dodavanje razmaka između naslova i teksta */
+}
+
+/*Gumb Dizajn*/
+button {
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  border: none;
+  color: rgb(253, 204, 4);
+  background: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 50px;
+  margin-bottom: 1rem; /* Dodana margina između gumbi */
+  align-self: flex-start; /* Poravnanje gumba s lijeve strane */
+}
+
+button:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+/*da bi se ljepse pomaknulo kada se stisne sidro*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*Text kod ASA plastike*/
+.column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgb(0, 0, 0);
+  padding: 0rem 2rem;
+}
+
+.column-center h1 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+/* Stilovi za sliku na stranici O Nama */
+.onama-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodavanje sjene iza slike */
+  border: 3px solid rgb(0, 0, 0); /* Dodavanje crnog obruba oko slike */
+}
+
+/*Ako je manji ekran*/
+@media screen and (max-width: 768px) {
+  .nav-items {
+      display: none;
+      flex-direction: column;
+      width: 30%; /* Ograničava širinu izbornika na 30% ekrana */
+      background: rgb(253, 204, 4);
+      position: absolute;
+      top: 80px;
+      right: 0; /* Poravnava izbornik s desne strane */
+      height: 100%; /* Povećava visinu izbornika na 100% visine ekrana */
+      overflow-y: auto; /* Dodaje scroll bar ako je sadržaj veći od 100% visine */
+      transition: transform 0.3s ease; /* Dodaje prijelaz za pomicanje */
+  }
+
+  .nav-items a {
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+  }
+
+  .hamburger {
+      display: block;
+      margin-right: 1rem;
+  }
+
+  .nav-items.active {
+      display: flex;
+      transform: translateX(-30%); /* Pomicanje izbornika u stranu */
+  }
+
+  .hero-container {
+      grid-template-columns: 1fr;
+      height: auto;
+      transition: transform 0.3s ease; /* Dodaje prijelaz za pomicanje */
+  }
+
+  .hero-container.active {
+      transform: translateX(-30%); /* Pomicanje sadržaja u stranu */
+  }
+
+  .column-left, .column-right {
+      padding: 1rem;
+  }
+
+  .onama-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodavanje sjene iza slike */
+    border: 3px solid rgb(0, 0, 0); /* Dodavanje crnog obruba oko slike */
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Smanjivanje gumba u sekciji "hero" */
+  .hero button {
+    padding: 2vw 6vw;
+    font-size: 2vw;
+  }
+
+  .komentari-container {
+    height: auto;
+  }
+
+  .komentar {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .komentari-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+  }
+
+  #najnoviji-proizvodi {
+    display: flex;
+    flex-direction: column; /* Promjena layouta na jedan stupac */
+    text-align: center;
+    max-width: 90%; /* Ograničava širinu sekcije na 90% ekrana za manje ekrane */
+  }
+
+  #najnoviji-proizvodi .column-right {
+    margin-top: 1rem; /* Dodavanje margine između teksta i slika */
+  }
+
+  #najnoviji-proizvodi .slajder-proizvodi img {
+    width: 80%;
+  }
+
+  .proizvod-grupa {
+    grid-template-columns: repeat(2, 1fr); /* Promjena layouta na dva stupca */
+  }
+
+  .proizvod-pozadina,
+  #lokacija,
+  #komentari,
+  #kontakt-forma,
+  #partneri,
+  #najnoviji-proizvodi {
+    max-width: 90%; /* Ograničava širinu sekcije na 90% ekrana za manje ekrane */
+    min-width: 90%; /* Ograničava širinu sekcije na 90% ekrana za manje ekrane */
+  }
+}
+
+#najnoviji-proizvodi {
+  display: flex;
+  flex-direction: column; /* Promjena layouta na jedan stupac */
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: left;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+  position: relative;
+}
+
+#najnoviji-proizvodi .column-left {
+  padding-right: 1rem;
+}
+
+#najnoviji-proizvodi h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#najnoviji-proizvodi .column-left p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#najnoviji-proizvodi .column-right {
+  margin-top: 1rem; /* Dodavanje margine između teksta i slika */
+}
+
+#najnoviji-proizvodi .slajder-proizvodi {
+  margin-bottom: 1rem;
+}
+
+#najnoviji-proizvodi .slajder-proizvodi img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Dodavanje sjene iza slika */
+}
+
+
+#partneri {
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+}
+
+#partneri h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.partneri-list {
+  list-style-type: none; /* Uklanjanje točke ispred svakog imena */
+  padding-left: 0; /* Uklanjanje razmaka između točke i teksta */
+  text-align: left; /* Poravnanje teksta lijevo */
+}
+
+.partneri-list li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem; /* Dodavanje razmaka za točku */
+}
+
+.partneri-list li::before {
+  content: '•'; /* Dodavanje točke */
+  color: rgb(0, 0, 0); /* Crna boja točke */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem; /* Veličina točke */
+}
+
+.partneri-list strong {
+  font-size: 1.5rem; /* Veća veličina fonta za ime firme */
+  color: rgb(253, 204, 4); /* Žuta boja za ime firme */
+  background: rgb(0, 0, 0); /* Crni oblačić */
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
+
+.partneri-list p {
+  margin: 0.5rem 0 0 1.5rem; /* Dodavanje razmaka između imena i opisa */
+  font-size: 1rem; /* Manja veličina fonta za opis firme */
+  color: rgb(0, 0, 0); /* Crna boja za opis firme */
+}
+
+.partneri-slike {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Raspoređivanje slika u 4 stupca */
+  gap: 1rem;
+  margin-top: 2rem; /* Dodavanje razmaka između liste i slika */
+}
+
+.partneri-slika {
+  width: 60%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodavanje sjene iza slika */
+  border: 3px solid rgb(0, 0, 0); /* Dodavanje crnog obruba oko slika */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Dodavanje prijelaza za transformaciju i filter */
+}
+
+.partneri-slika:hover {
+  transform: scale(1.1); /* Lagano povećanje slike */
+  filter: grayscale(100%); /* Posivljenje slike */
+}
+
+
+
+#komentari {
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+}
+
+#komentari h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.komentari-container {
+  position: relative;
+  height: 220px; /* Prilagodite visinu prema potrebi */
+  margin: 0 auto; /* Centriranje kontejnera */
+}
+
+.komentar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.komentar-slika {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  border: 3px solid rgb(0, 0, 0, 0.2);; /* Dodavanje crnog okvira oko karte */
+}
+
+.komentar p {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+}
+.komentari-buttons {
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  color: rgb(253, 204, 4);
+  background: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+button:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+
+#lokacija {
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+}
+
+#lokacija h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#lokacija p {
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.map-container iframe {
+  width: 80%;
+  max-width: 600px;
+  height: 350px;
+  border: 3px solid rgb(0, 0, 0, 0.2);; /* Dodavanje crnog okvira oko karte */
+  border-radius: 10px;
+}
+
+
+
+#kontakt-forma {
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+}
+
+#kontakt-forma h2 {
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#kontakt-forma .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#kontakt-forma label {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  margin-top: 1rem;
+}
+
+#kontakt-forma input,
+#kontakt-forma textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#kontakt-forma button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgb(0, 0, 0);
+  color: rgb(253, 204, 4);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease; /* Ova linija definira prijelaznu animaciju */
+}
+
+#kontakt-forma button:hover {
+  background: rgb(50, 50, 50);
+}
+
+
+
+.proizvod-naslov {
+  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.proizvod-grupa {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.proizvod {
+  text-align: center;
+}
+
+.proizvod img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.proizvod img:hover {
+  transform: scale(1.1);
+}
+
+.proizvod p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+}
+
+.proizvod-pozadina {
+  background: rgb(253, 204, 4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  text-align: center;
+  max-width: 65%; /* Ograničava širinu sekcije na 65% ekrana */
+}
+
+.video-obrub {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.video-obrub iframe {
+  width: 100%;
+  height: 315px;
+  border: 2px solid rgba(255, 255, 255, 0.9); /* Tanka prozirna obruba */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Efekt lebdenja */
+}
+
+
+
+footer {
+  background: rgb(0, 0, 0);
+  color: rgb(253, 204, 4);
+  text-align: center;
+  padding: 1rem 0;
+  position: flex;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+footer .social-links {
+  margin-top: 1rem;
+}
+
+footer .social-links a {
+  margin: 0 0.5rem;
+  text-decoration: none; /* Uklonio podcrtavanje */
+}
+
+footer .social-links img.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* Prikaz kod Proizvoda */
+/* Modalni prozor */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+/*podatci u iskocnom prozoru*/
+.modal-content {
+  background-color: rgb(254, 254, 254);
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid rgb(136, 136, 136);
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+ /* X za zatvaranje */
+.close {
+  color: rgb(170, 170, 170);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.proizvod-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.proizvod-info table, .proizvod-info th, .proizvod-info td {
+  border: 1px solid rgb(221, 221, 221);
+}
+
+.proizvod-info th, .proizvod-info td {
+  padding: 8px;
+  text-align: left;
+}
+
+.proizvod-info th {
+  background-color: rgb(242, 242, 242);
+}
+
+.proizvod-cijena {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+}
+
+
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+body {
+  min-width: 330px; /* min. širina stranice na 330px */
+}
+
+/* Animacija */
+@keyframes fade {
+from {opacity: .4}
+to {opacity: 1}
+}
